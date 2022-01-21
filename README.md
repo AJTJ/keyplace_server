@@ -1,0 +1,1 @@
+A simple server implementation for storing custodial keys with keyplace (https://github.com/mindbeam/keyplace)
