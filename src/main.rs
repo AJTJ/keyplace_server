@@ -103,37 +103,3 @@ async fn main() -> std::io::Result<()> {
     .run()
     .await
 }
-
-// // agent key is generated and is connected to the user's email
-// // it contains a private and public halves of an asymmetric key
-// let email = "yes@yes.com";
-// let agentkey = AgentKey::create(Some(email.to_string()));
-// println!("agent key 1: {:?}", agentkey);
-
-// // the passkey is the key generated from a private password
-// // neither the pw nor the passkey never need or should be sent anywhere
-// let pw = "dank memes";
-// let passkey = PassKey::new(pw);
-
-// // the custodial key is generated from the agentkey and the passkey
-// // it can be stored anywhere public as a way to recover the agentkey with a new passkey
-// let custkey = agentkey.custodial_key(passkey);
-// println!("cust key: {:?}", custkey);
-
-// // a new passkey is created using the previous password
-// let passkey2 = PassKey::new(pw);
-// let agentkey2 = AgentKey::from_custodial_key(custkey.clone(), passkey2).unwrap();
-// println!("agent key 2: {:?}", agentkey2.keypair);
-
-// // this does not work. It will not create a new agent key.
-// let new_pw = "dankest memes bruh";
-// let newpasskey = PassKey::new(new_pw);
-// let agentkey3 = AgentKey::from_custodial_key(custkey.clone(), newpasskey).unwrap();
-// println!("agent key 3: {:?}", agentkey3.keypair);
-
-// // this simplifies the process of the user having to remember an absurd private key
-
-// // NOTES
-// // A pw/passkey could be used multiple times for different keypairs
-// // Or, a keypair could be stored multiple times with different passwords
-// // a passkey and a new email, could be used to generate a
