@@ -85,7 +85,6 @@ struct UserData {
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    // SESSION TABLE
     let user_keys: HashMap<String, UserData> = HashMap::new();
     let user_keys_data = web::Data::new(Mutex::new(user_keys));
     HttpServer::new(move || {
