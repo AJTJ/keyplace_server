@@ -85,6 +85,23 @@ struct UserData {
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
+    // some experimental things
+    // let email = "dank@memes.com";
+    // let pw = "memespw";
+
+    // // create keypair
+    // let agentkey = AgentKey::create(Some(email.to_string()));
+
+    // // create passkey
+    // let passkey = PassKey::new(pw);
+
+    // // create salted version of passkey
+    // let new_auth = passkey.auth();
+    // println!("new_auth: {:?}", new_auth);
+
+    // // create custodial key
+    // let custodial_key = agentkey.custodial_key(passkey);
+
     let user_keys: HashMap<String, UserData> = HashMap::new();
     let user_keys_data = web::Data::new(Mutex::new(user_keys));
     HttpServer::new(move || {
